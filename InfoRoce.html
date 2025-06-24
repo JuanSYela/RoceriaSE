@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Optimización de Rocería con Glifosato</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .kpi-card {
+            background-color: #0582CA;
+            color: white;
+        }
+        .flow-arrow {
+            font-size: 2.5rem;
+            line-height: 1;
+            color: #F99F1B;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#006494] mb-2">Optimizando el Mantenimiento de Subestaciones</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Una propuesta para reducir costos y aumentar la eficiencia mediante el uso estratégico de glifosato.</p>
+        </header>
+
+        <section id="problema" class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-[#006494] mb-8">El Desafío Actual: Mantenimiento Frecuente y Costoso</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                <div class="kpi-card rounded-xl shadow-lg p-6 flex flex-col justify-center">
+                    <p class="text-2xl font-semibold mb-2">Costo Anual de Rocería (2024)</p>
+                    <p class="text-5xl font-black tracking-tighter">$3,463,000,000+</p>
+                    <p class="text-lg opacity-80 mt-2">Suma de costos en Valle y Tolima</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <p class="text-xl font-semibold text-[#006494] mb-4">La Mayoría de las Intervenciones son Bimensuales o más Frecuentes</p>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="frecuenciasActualesChart"></canvas>
+                    </div>
+                     <p class="text-sm text-gray-500 mt-4">El gráfico muestra el número total de subestaciones por frecuencia de rocería actual en días. Una alta concentración en intervalos cortos (30-72 días) evidencia una carga operativa constante y reactiva.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="solucion" class="mb-12 text-center">
+             <h2 class="text-3xl font-bold text-[#006494] mb-8">La Solución Estratégica: De Control Mecánico a Sistémico</h2>
+             <p class="max-w-3xl mx-auto text-gray-600 mb-8">El cambio de un método de rocería mecánico a uno químico con glifosato transforma el paradigma del mantenimiento. En lugar de podar la vegetación para que vuelva a crecer rápidamente, el glifosato ataca la raíz, ofreciendo un control mucho más duradero.</p>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                 <div class="bg-white rounded-xl shadow-lg p-6 border-l-8 border-red-500">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4">Método Actual: Rocería Mecánica</h3>
+                    <div class="flex flex-col items-center space-y-4 text-lg">
+                        <div class="p-4 bg-red-100 rounded-lg w-full">Corte de vegetación</div>
+                        <div class="flow-arrow transform rotate-90 md:rotate-0">↓</div>
+                        <div class="p-4 bg-red-100 rounded-lg w-full">Raíces intactas, rápido rebrote</div>
+                        <div class="flow-arrow transform rotate-90 md:rotate-0">↓</div>
+                        <div class="p-4 bg-red-500 text-white font-bold rounded-lg w-full">Alta frecuencia (30-90 días)</div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6 border-l-8 border-green-500">
+                    <h3 class="text-2xl font-bold text-green-600 mb-4">Propuesta: Aplicación de Glifosato</h3>
+                    <div class="flex flex-col items-center space-y-4 text-lg">
+                        <div class="p-4 bg-green-100 rounded-lg w-full">Aplicación de herbicida</div>
+                        <div class="flow-arrow transform rotate-90 md:rotate-0">↓</div>
+                        <div class="p-4 bg-green-100 rounded-lg w-full">Acción sistémica, elimina la raíz</div>
+                        <div class="flow-arrow transform rotate-90 md:rotate-0">↓</div>
+                        <div class="p-4 bg-green-500 text-white font-bold rounded-lg w-full">Baja frecuencia (120-180+ días)</div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <section id="impacto" class="mb-12">
+            <h2 class="text-3xl font-bold text-center text-[#006494] mb-8">Análisis de Impacto: Antes vs. Después</h2>
+             <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">La implementación del glifosato no solo extiende los ciclos de mantenimiento, sino que también reduce drásticamente el número de intervenciones anuales necesarias, generando eficiencias operativas y financieras en todas las zonas.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h3 class="text-xl font-semibold text-center text-[#006494] mb-4">Extensión de la Frecuencia de Mantenimiento (Días)</h3>
+                    <div class="chart-container">
+                        <canvas id="comparativaFrecuenciaChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">Este gráfico compara la frecuencia promedio actual (en días) con la frecuencia propuesta para cada zona. Un ciclo más largo significa menos intervenciones y costos más bajos a lo largo del año.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                     <h3 class="text-xl font-semibold text-center text-[#006494] mb-4">Reducción de Intervenciones Anuales</h3>
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <div class="chart-container" style="height: 160px;"> <canvas id="reduccionValleSurChart"></canvas> </div>
+                            <p class="font-bold mt-2">Valle Sur</p>
+                        </div>
+                        <div>
+                            <div class="chart-container" style="height: 160px;"> <canvas id="reduccionValleNorteChart"></canvas> </div>
+                             <p class="font-bold mt-2">Valle Norte</p>
+                        </div>
+                        <div>
+                            <div class="chart-container" style="height: 160px;"> <canvas id="reduccionTolimaNorteChart"></canvas> </div>
+                             <p class="font-bold mt-2">Tolima Norte</p>
+                        </div>
+                        <div>
+                            <div class="chart-container" style="height: 160px;"> <canvas id="reduccionTolimaSurChart"></canvas> </div>
+                            <p class="font-bold mt-2">Tolima Sur</p>
+                        </div>
+                    </div>
+                     <p class="text-sm text-gray-500 mt-4">Estos gráficos muestran la drástica reducción porcentual en el número de intervenciones de mantenimiento necesarias cada año por zona, un indicador clave de la eficiencia ganada.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="costos" class="mb-12">
+             <h2 class="text-3xl font-bold text-center text-[#006494] mb-8">Impacto Financiero: Proyección de Ahorros</h2>
+             <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">La reducción en la frecuencia de las intervenciones se traduce directamente en ahorros significativos en los costos operativos anuales. La inversión en glifosato genera un retorno claro y medible.</p>
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-xl font-semibold text-center text-[#006494] mb-4">Comparativa de Costo Anual de Rocería (Actual vs. Propuesto)</h3>
+                 <div class="chart-container">
+                    <canvas id="comparativaCostosChart"></canvas>
+                </div>
+                 <p class="text-sm text-gray-500 mt-4">La proyección de costos muestra un ahorro potencial de más del 40% en todas las zonas. El costo propuesto se estima aplicando la reducción porcentual de intervenciones al costo actual de 2024.</p>
+            </div>
+        </section>
+
+         <section id="beneficios" class="text-center">
+            <h2 class="text-3xl font-bold text-[#006494] mb-8">Beneficios Operacionales Adicionales</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <span class="text-5xl">🛡️</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#0582CA]">Mayor Seguridad</h3>
+                    <p class="text-gray-600">Menos intervenciones humanas en las subestaciones reducen directamente la exposición del personal a riesgos eléctricos y otros peligros laborales.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                    <span class="text-5xl">⚙️</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#0582CA]">Eficiencia de Recursos</h3>
+                    <p class="text-gray-600">Libera a las cuadrillas de mantenimiento para que se centren en otras tareas críticas de mayor valor, optimizando la asignación de recursos humanos.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8">
+                     <span class="text-5xl">🌱</span>
+                    <h3 class="text-xl font-bold mt-4 mb-2 text-[#0582CA]">Control Superior</h3>
+                    <p class="text-gray-600">El control de la vegetación a largo plazo asegura un acceso despejado para emergencias y reduce los riesgos de incendios o daños a equipos.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="text-center p-6 bg-[#006494] text-white mt-12">
+        <p>Esta infografía se basa en el análisis de datos de frecuencia de rocería y el informe de optimización con glifosato.</p>
+        <p class="text-sm opacity-80">Propuesta de Visualización de Datos | Junio 2025</p>
+    </footer>
+
+    <script>
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+
+        const wrapLabels = (label, maxLength) => {
+            if (typeof label !== 'string' || label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            });
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const chartColors = {
+            blue: '#00A6FB',
+            darkBlue: '#0582CA',
+            navy: '#006494',
+            orange: '#F99F1B',
+            yellow: '#FDCA40',
+            gray: '#e5e7eb'
+        };
+
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#374151'
+                    },
+                    grid: {
+                        color: '#d1d5db'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#374151'
+                    },
+                    grid: {
+                        display: false
+                    }
+                }
+            }
+        };
+
+        new Chart(document.getElementById('frecuenciasActualesChart'), {
+            type: 'bar',
+            data: {
+                labels: ['30-50 días', '60-73 días', '80-90 días', '120+ días'],
+                datasets: [{
+                    label: 'Número de Subestaciones',
+                    data: [40, 185, 46, 39],
+                    backgroundColor: [chartColors.orange, chartColors.darkBlue, chartColors.blue, chartColors.yellow],
+                    borderColor: 'white',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...commonOptions,
+                 plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                         callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('comparativaFrecuenciaChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Valle Sur', 'Valle Norte', 'Tolima Norte', 'Tolima Sur'],
+                datasets: [
+                    {
+                        label: 'Frecuencia Actual (días)',
+                        data: [45, 60, 73, 72],
+                        backgroundColor: chartColors.orange,
+                    },
+                    {
+                        label: 'Frecuencia Propuesta (días)',
+                        data: [90, 120, 120, 120],
+                        backgroundColor: chartColors.darkBlue,
+                    }
+                ]
+            },
+            options: commonOptions
+        });
+        
+        const createDonutChart = (canvasId, label, reductionPercentage) => {
+            new Chart(document.getElementById(canvasId), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Reducción', 'Restante'],
+                    datasets: [{
+                        data: [reductionPercentage, 100 - reductionPercentage],
+                        backgroundColor: [chartColors.darkBlue, chartColors.gray],
+                        borderColor: 'white',
+                        borderWidth: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { enabled: false },
+                        title: {
+                            display: true,
+                            text: `${reductionPercentage.toFixed(0)}%`,
+                            position: 'bottom',
+                            font: {
+                                size: 24,
+                                weight: 'bold'
+                            },
+                             padding: {
+                                top: -30
+                            },
+                            color: chartColors.navy
+                        }
+                    }
+                }
+            });
+        };
+        
+        createDonutChart('reduccionValleSurChart', 'Valle Sur', 55);
+        createDonutChart('reduccionValleNorteChart', 'Valle Norte', 50);
+        createDonutChart('reduccionTolimaNorteChart', 'Tolima Norte', 45);
+        createDonutChart('reduccionTolimaSurChart', 'Tolima Sur', 45);
+
+        new Chart(document.getElementById('comparativaCostosChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Valle Sur', 'Valle Norte', 'Tolima Sur', 'Tolima Norte'].map(l => wrapLabels(l, 16)),
+                datasets: [
+                    {
+                        label: 'Costo Actual (COP)',
+                        data: [493838159, 386087766, 1665450630, 917623232],
+                        backgroundColor: chartColors.orange,
+                    },
+                    {
+                        label: 'Costo Propuesto (COP)',
+                        data: [493838159 * 0.45, 386087766 * 0.50, 1665450630 * 0.55, 917623232 * 0.55],
+                        backgroundColor: chartColors.darkBlue,
+                    }
+                ]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    y: {
+                        ...commonOptions.scales.y,
+                        ticks: {
+                            ...commonOptions.scales.y.ticks,
+                            callback: function(value, index, values) {
+                                return (value / 1e6).toFixed(0) + 'M';
+                            }
+                        }
+                    },
+                    x: commonOptions.scales.x
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
