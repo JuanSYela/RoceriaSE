@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para la brillante Julieth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-lavender: #E0E0FB; /* Lavender suave y vibrante */
+            --secondary-blue: #B3E0FF; /* Azul cielo vibrante */
+            --accent-gold: #FFD700;    /* Oro brillante */
+            --text-dark: #333;
+            --text-light: #555;
+            --button-yes: #6BE08B; /* Verde vibrante */
+            --button-no: #FF6B6B;  /* Rojo vibrante */
+            --card-bg: rgba(255, 255, 255, 0.98); /* Blanco casi opaco */
+            --shadow-light: rgba(0, 0, 0, 0.15);
+            --shadow-deep: rgba(0, 0, 0, 0.25);
+
+            /* Colores para el corazón ARC, tonos de azul y cian más profundos */
+            --arc-center: #00E5FF; /* Cian brillante */
+            --arc-mid: #00BFFF;    /* Azul cielo profundo */
+            --arc-outer: #0080FF;  /* Azul medio */
+            --arc-glow: rgba(0, 191, 255, 0.8);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--primary-lavender) 0%, var(--secondary-blue) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            color: var(--text-dark);
+            overflow: hidden; /* Evita barras de desplazamiento innecesarias */
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            border-radius: 30px; /* Bordes más suaves */
+            box-shadow: 0 15px 40px var(--shadow-deep); /* Sombra más pronunciada */
+            padding: 40px 30px;
+            max-width: 680px; /* Un poco más de ancho */
+            text-align: center;
+            position: relative;
+            transform: translateY(0);
+            transition: transform 0.6s ease-out, box-shadow 0.6s ease-out;
+            border: 3px solid var(--accent-gold); /* Borde dorado más definido */
+            animation: fadeInScaleUp 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Animación de entrada más elástica */
+        }
+
+        @keyframes fadeInScaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .container:hover {
+            transform: translateY(-5px); /* Pequeño levantamiento al pasar el ratón */
+            box-shadow: 0 20px 50px var(--shadow-deep);
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: var(--text-dark);
+            font-size: 3.2em; /* Más grande */
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.15); /* Sombra de texto más suave */
+            animation: textReveal 1.5s ease-out forwards;
+            overflow: hidden; /* Necesario para la animación de texto */
+            white-space: nowrap; /* Mantiene el texto en una línea */
+            border-right: .15em solid orange; /* Cursor de máquina de escribir */
+        }
+        /* Animación de máquina de escribir */
+        @keyframes textReveal {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        p {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 1.15em; /* Un poco más grande */
+            margin-bottom: 20px;
+            animation: slideInUp 1s ease-out forwards 0.5s; /* Retraso */
+            opacity: 0; /* Oculto inicialmente */
+        }
+        p:nth-of-type(2) { animation-delay: 0.8s; }
+        p:nth-of-type(3) { animation-delay: 1.1s; } /* Para el párrafo con la pregunta */
+
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .highlight {
+            font-weight: 700; /* Más audaz */
+            color: var(--text-dark);
+        }
+
+        /* Estilo del CORAZÓN ARC */
+        .arc-detail {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: none; /* Eliminar fondo inicial para construir la forma del corazón */
+            box-shadow: none; /* Eliminar sombra inicial */
+            opacity: 0.9;
+            animation: pulseArc 2s infinite alternate, rotate3D 10s linear infinite;
+            transform-style: preserve-3d;
+            /* Propiedades para la forma de corazón */
+            transform-origin: 50% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arc-detail::before,
+        .arc-detail::after {
+            content: '';
+            position: absolute;
+            width: 32px; /* Tamaño para formar el corazón */
+            height: 50px; /* Tamaño para formar el corazón */
+            background: radial-gradient(circle at center, var(--arc-center) 0%, var(--arc-mid) 50%, var(--arc-outer) 100%);
+            border-radius: 50% 50% 0 0; /* Bordes superiores redondeados */
+            box-shadow: 0 0 15px 5px var(--arc-glow); /* Resplandor */
+        }
+
+        .arc-detail::before {
+            left: 28px; /* Posicionamiento para la mitad izquierda */
+            transform: rotate(-45deg);
+        }
+
+        .arc-detail::after {
+            left: -2px; /* Posicionamiento para la mitad derecha */
+            transform: rotate(45deg);
+        }
+
+        .arc-detail-bottom {
+            position: absolute;
+            width: 50px; /* La base del corazón */
+            height: 50px;
+            background: radial-gradient(circle at center, var(--arc-center) 0%, var(--arc-mid) 50%, var(--arc-outer) 100%);
+            transform: rotate(-45deg);
+            border-radius: 0 50% 50% 50%; /* Esquinas redondeadas para la parte inferior */
+            box-shadow: 0 0 15px 5px var(--arc-glow);
+            z-index: -1; /* Para que quede detrás de las otras partes */
+        }
+
+
+        @keyframes pulseArc {
+            from { transform: scale(1) rotateY(0deg); box-shadow: 0 0 20px 8px var(--arc-glow); }
+            to { transform: scale(1.08) rotateY(360deg); box-shadow: 0 0 30px 12px var(--arc-glow); }
+        }
+
+        @keyframes rotate3D {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            100% { transform: rotateY(360deg) rotateX(360deg); }
+        }
+
+
+        .audio-section {
+            margin: 40px 0; /* Más espacio */
+            border: 2px dashed var(--accent-gold); /* Borde más visible */
+            padding: 20px;
+            border-radius: 15px; /* Más redondeado */
+            background-color: rgba(255, 255, 255, 0.8);
+            animation: fadeIn 1s ease-out forwards 1.4s; /* Retraso para que aparezca después del texto */
+            opacity: 0;
+        }
+
+        .audio-placeholder {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 0.9em; /* Más pequeño para el placeholder */
+        }
+
+        .audio-section iframe {
+            width: 100%;
+            border-radius: 10px;
+            height: 90px; /* Ajusta la altura */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Más separación */
+            margin-top: 50px; /* Más espacio */
+            animation: slideInUp 1s ease-out forwards 1.8s; /* Retraso final */
+            opacity: 0;
+        }
+
+        .btn {
+            padding: 18px 35px; /* Más grandes */
+            border: none;
+            border-radius: 40px; /* Más redondeados */
+            font-size: 1.2em; /* Texto más grande */
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición más suave */
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px; /* Más espaciado entre letras */
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Sombra más profunda */
+        }
+
+        .btn-yes {
+            background-color: var(--button-yes);
+        }
+
+        .btn-yes:hover {
+            background-color: #5ac47d; /* Tono más oscuro al pasar el ratón */
+            transform: translateY(-5px) scale(1.05); /* Más movimiento */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-no {
+            background-color: var(--button-no);
+        }
+
+        .btn-no:hover {
+            background-color: #eb5959; /* Tono más oscuro al pasar el ratón */
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .signature {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em; /* Más grande */
+            color: var(--text-dark);
+            margin-top: 50px;
+            line-height: 1;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+            animation: fadeIn 1s ease-out forwards 2.2s; /* Retraso final */
+            opacity: 0;
+        }
+
+        .response-message {
+            margin-top: 40px;
+            font-size: 1.4em; /* Más grande */
+            font-weight: bold;
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .response-message.success {
+            color: var(--button-yes);
+            text-shadow: 0 0 5px rgba(107, 224, 139, 0.5);
+        }
+
+        .response-message.error {
+            color: var(--button-no);
+            text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                max-width: 95%;
+            }
+            h1 {
+                font-size: 2em;
+                white-space: normal; /* Permitir salto de línea en móviles */
+                border-right: none; /* Quitar cursor de máquina de escribir en móviles */
+            }
+            p {
+                font-size: 1em;
+            }
+            .buttons-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .btn {
+                width: 90%;
+                margin: 0 auto;
+            }
+            .signature {
+                font-size: 2em;
+            }
+            .arc-detail {
+                width: 45px;
+                height: 45px;
+                top: 20px;
+                right: 20px;
+            }
+            .audio-section {
+                margin: 30px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="arc-detail">
+            <div class="arc-detail-bottom"></div>
+        </div>
+
+        <h1>Para la socióloga más brillante...</h1>
+
+        <p>Hola <span class="highlight">Julieth Camila Arce</span>,</p>
+
+        <p>Tu corazón es tan grande como tu conocimiento, y tu sonrisa más potente que cualquier reactor ARC. Pensando en tu increíble dulzura y en lo mucho que disfrutas un buen <span class="highlight">chocolate</span>, se me ocurrió una idea...</p>
+
+        <div class="audio-section">
+            <p class="audio-placeholder">Aquí te dejo algo que quizás te guste:</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3n3oNgo0tDCUsHVdlwtu9a?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+
+        <p>Julieth, <span class="highlight">¿te atreves a un café que nos haga creer en superpoderes?</span></p>
+
+        <p>Me encantaría que compartiéramos un momento y quizás un buen trozo de tu chocolate favorito.</p>
+
+        <form id="invitationForm" action="TU_URL_DEL_SERVICIO_DE_FORMULARIO" method="POST">
+            <input type="hidden" name="invitada" value="Julieth Camila Arce">
+            <input type="hidden" name="remitente" value="[Tu nombre aquí]">
+            <input type="hidden" name="respuesta" id="respuestaInput">
+
+            <div class="buttons-container">
+                <button type="button" class="btn btn-yes" onclick="submitResponse('Sí, me encantaría')">¡Sí, me encantaría!</button>
+                <button type="button" class="btn btn-no" onclick="submitResponse('No, gracias')">No, gracias</button>
+            </div>
+        </form>
+
+        <p class="signature">Con mucho cariño,<br>[Tu nombre aquí]</p>
+
+        <div id="response" class="response-message"></div>
+    </div>
+
+    <script>
+        function submitResponse(choice) {
+            const responseInput = document.getElementById('respuestaInput');
+            responseInput.value = choice; // Guarda la respuesta en el campo oculto
+
+            const form = document.getElementById('invitationForm');
+            const buttons = document.querySelector('.buttons-container');
+            const responseDiv = document.getElementById('response');
+            const signatureDiv = document.querySelector('.signature');
+            const mainParagraphs = document.querySelectorAll('p:not(.audio-placeholder)'); // Selecciona párrafos principales, excluyendo el placeholder de audio
+            const h1Element = document.querySelector('h1');
+            const arcDetailElement = document.querySelector('.arc-detail');
+            const audioSectionElement = document.querySelector('.audio-section');
+
+            // Animación y ocultamiento de elementos
+            buttons.style.opacity = '0';
+            buttons.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                buttons.style.display = 'none';
+            }, 500); // Dar tiempo a la animación para terminar
+
+            signatureDiv.style.opacity = '0';
+            signatureDiv.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                signatureDiv.style.display = 'none';
+            }, 500);
+
+            // Ocultar el resto del texto y elementos principales
+            mainParagraphs.forEach(p => {
+                p.style.opacity = '0';
+                p.style.transform = 'translateY(-10px)';
+                p.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            h1Element.style.opacity = '0';
+            h1Element.style.transform = 'translateY(-10px)';
+            arcDetailElement.style.opacity = '0';
+            audioSectionElement.style.opacity = '0';
+
+            // Mostrar mensaje de respuesta
+            if (choice === 'Sí, me encantaría') {
+                responseDiv.innerHTML = '¡Fantástico! Me hace muchísima ilusión. Te escribiré pronto para coordinar todos los detalles. ¡Ya quiero que pase!';
+                responseDiv.classList.remove('error');
+                responseDiv.classList.add('success');
+            } else {
+                responseDiv.innerHTML = 'Entendido. Gracias por ser tan sincera. ¡Te deseo un día lleno de cosas buenas!';
+                responseDiv.classList.remove('success');
+                responseDiv.classList.add('error');
+            }
+            responseDiv.style.display = 'block';
+
+            // ENVÍO DE LA RESPUESTA AL SERVICIO EXTERNO (Google Forms, Formspree, etc.)
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json' // Para algunos servicios como Formspree
+                }
+            }).then(response => {
+                if (response.ok) {
+                    console.log('Respuesta enviada con éxito.');
+                } else {
+                    console.error('Hubo un error al enviar la respuesta.');
+                }
+            }).catch(error => {
+                console.error('Error de red:', error);
+            });
+        }
+    </script>
+</body>
+</html>
