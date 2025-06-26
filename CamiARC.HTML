@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Día Chocolate Sol para Camila</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to top, #020111, #191621);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+      animation: sunrise 6s ease-in-out forwards;
+    }
+
+    @keyframes sunrise {
+      0% {
+        background: linear-gradient(to top, #020111, #191621);
+      }
+      50% {
+        background: linear-gradient(to top, #3a1c71, #d76d77);
+      }
+      100% {
+        background: linear-gradient(to top, #ff9966, #ff5e62);
+      }
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+
+    .sunset {
+      width: 100%;
+      max-width: 800px;
+      height: 300px;
+      background-image: url('https://images.unsplash.com/photo-1501973801540-537f08ccae7d?auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .soundcloud {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+    }
+
+    .message {
+      margin-top: 40px;
+      font-size: 1.2em;
+      max-width: 700px;
+    }
+
+    .heart {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    .credits {
+      font-size: 10px;
+      color: #cccccc;
+      line-break: anywhere;
+      word-break: normal;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+      font-weight: 100;
+    }
+
+    .credits a {
+      color: #cccccc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Día Chocolate Sol</h1>
+  <h2>Un podcast creado sólo para ti, Camila</h2>
+
+  <div class="sunset"></div>
+
+  <div class="soundcloud">
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1975947647&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+  </div>
+  <div class="credits">
+    <a href="https://soundcloud.com/juan-y-441959238" title="Juan Y" target="_blank">Juan Y</a> ·
+    <a href="https://soundcloud.com/juan-y-441959238/dia-chocolate-sol_julieth-camila" title="Día Chocolate Sol - Julieth Camila" target="_blank">Día Chocolate Sol - Julieth Camila</a>
+  </div>
+
+  <div class="message">
+    <p>Camila, este podcast es un regalo para tu alma. Para que recuerdes que incluso cuando los días se nublan, tú eres sol, eres chocolate y eres magia.</p>
+    <p class="heart">☀️🍫💛</p>
+  </div>
+</body>
+</html>
