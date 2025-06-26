@@ -8,7 +8,8 @@
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to top, #020111, #191621);
+            /* Colores base para un atardecer oscuro */
+            background: linear-gradient(to top, #0A001F, #1F003A); /* Noche profunda violeta */
             color: white;
             display: flex;
             flex-direction: column;
@@ -16,23 +17,24 @@
             justify-content: center;
             min-height: 100vh;
             text-align: center;
-            padding: 20px; /* Padding general para evitar que el contenido toque los bordes */
-            animation: sunrise 25s ease-in-out infinite alternate;
-            box-sizing: border-box; /* Asegura que padding y border se incluyan en el ancho/alto */
+            padding: 20px;
+            animation: sunsetGlow 25s ease-in-out infinite alternate; /* Renombrado a sunsetGlow */
+            box-sizing: border-box;
         }
 
-        @keyframes sunrise {
+        /* Keyframes para la animación de atardecer oscuro */
+        @keyframes sunsetGlow {
             0% {
-                background: linear-gradient(to top, #020111, #191621);
+                background: linear-gradient(to top, #0A001F, #1F003A); /* Noche profunda violeta */
             }
             33% {
-                background: linear-gradient(to top, #3a1c71, #d76d77);
+                background: linear-gradient(to top, #2C0055, #4A0070); /* Violeta oscuro del crepúsculo */
             }
             66% {
-                background: linear-gradient(to top, #d76d77, #ff9966);
+                background: linear-gradient(to top, #500075, #7500A0); /* Violeta más intenso del horizonte */
             }
             100% {
-                background: linear-gradient(to top, #ff9966, #ff5e62);
+                background: linear-gradient(to top, #903000, #C05000); /* Naranja quemado y rojo oscuro (último resplandor) */
             }
         }
 
@@ -49,7 +51,7 @@
         }
 
         .soundcloud {
-            width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            width: 100%;
             max-width: 800px;
             border-radius: 15px;
             overflow: hidden;
@@ -83,7 +85,7 @@
             line-height: 1.7;
             margin-bottom: 25px;
             padding: 0 15px;
-            box-sizing: border-box; /* Importante para que padding no desborde */
+            box-sizing: border-box;
         }
 
         .heart {
@@ -97,12 +99,12 @@
             border-radius: 20px;
             padding: 40px;
             max-width: 750px;
-            width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            width: 100%;
             margin-top: 20px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
             text-align: left;
             margin-bottom: 50px;
-            box-sizing: border-box; /* Importante para que padding no desborde */
+            box-sizing: border-box;
         }
 
         .instructions h3 {
@@ -164,17 +166,19 @@
             border-radius: 25px;
             padding: 50px;
             max-width: 750px;
-            width: 100%; /* Asegura que ocupe todo el ancho disponible */
+            width: 100%;
             margin-top: 50px;
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
             text-align: center;
             border: 3px solid #ffde59;
             position: relative;
             overflow: hidden;
-            animation: pulse 2s infinite alternate;
-            box-sizing: border-box; /* Importante para que padding no desborde */
+            /* SE ELIMINA LA ANIMACIÓN PULSE PARA QUE EL RECUADRO NO SE MUEVA */
+            /* animation: pulse 2s infinite alternate; */
+            box-sizing: border-box;
         }
 
+        /* Los keyframes @keyframes pulse se pueden eliminar si no se usan en otro lugar, pero no causan daño si se quedan */
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -208,17 +212,17 @@
 
         .prize-form label {
             font-size: 1.2em;
-            align-self: flex-start; /* Permanece alineado a la izquierda */
-            /* ELIMINAR O AJUSTAR ESTO PARA MÓVILES */
-            margin-left: calc(50% - 250px); /* Esto se ajustará en media query */
+            align-self: flex-start;
+            margin-left: calc(50% - 250px);
             max-width: 500px;
             width: 100%;
-            box-sizing: border-box; /* Para padding si se agrega */
+            box-sizing: border-box;
+            text-align: left;
         }
 
         .prize-form input[type="text"],
         .prize-form input[type="time"] {
-            width: calc(100% - 40px); /* Ajustar el ancho para que quepa el padding */
+            width: calc(100% - 40px);
             max-width: 500px;
             padding: 18px;
             border-radius: 12px;
@@ -228,7 +232,7 @@
             font-size: 1.2em;
             box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
-            box-sizing: border-box; /* Importante para que padding no desborde */
+            box-sizing: border-box;
         }
 
         .prize-form input[type="text"]:focus,
@@ -277,7 +281,7 @@
             font-size: 0.8em;
             color: #ccc;
             opacity: 0.7;
-            margin-bottom: 20px; /* Asegurar espacio al final de la página */
+            margin-bottom: 20px;
         }
 
         /* ================================================= */
@@ -287,11 +291,11 @@
         /* Para pantallas hasta 768px (tabletas y móviles grandes) */
         @media (max-width: 768px) {
             body {
-                padding: 15px; /* Menos padding en los bordes del body */
+                padding: 15px;
             }
 
             h1 {
-                font-size: 2.8em; /* Reducir tamaño de títulos */
+                font-size: 2.8em;
             }
 
             h2 {
@@ -302,7 +306,7 @@
             .message {
                 font-size: 1.1em;
                 line-height: 1.6;
-                padding: 0 10px; /* Reducir padding horizontal */
+                padding: 0 10px;
             }
 
             .heart {
@@ -311,68 +315,70 @@
             }
 
             .instructions {
-                padding: 30px; /* Reducir padding interno */
+                padding: 30px;
             }
 
             .instructions h3 {
-                font-size: 1.8em; /* Reducir tamaño del título de instrucciones */
+                font-size: 1.8em;
                 margin-bottom: 20px;
             }
 
             .instructions li {
-                font-size: 1em; /* Reducir tamaño del texto del paso */
-                margin-bottom: 25px; /* Reducir espacio entre pasos */
-                padding-left: 40px; /* Ajustar padding para el número */
+                font-size: 1em;
+                margin-bottom: 25px;
+                padding-left: 40px;
             }
 
             .instructions li strong {
-                font-size: 1.2em; /* Reducir el título del paso */
+                font-size: 1.2em;
                 margin-bottom: 5px;
             }
 
             .instructions li::before {
-                width: 30px; /* Número un poco más pequeño */
+                width: 30px;
                 height: 30px;
                 font-size: 1.1em;
             }
 
             .surprise-prize {
-                padding: 35px; /* Reducir padding interno */
+                padding: 35px;
             }
 
             .surprise-prize h3 {
-                font-size: 2em; /* Reducir tamaño del título del premio */
+                font-size: 2em;
                 margin-bottom: 25px;
             }
 
             .surprise-prize p {
-                font-size: 1.2em; /* Reducir tamaño del texto del premio */
+                font-size: 1.2em;
                 margin-bottom: 25px;
             }
 
+            .prize-form {
+                gap: 20px;
+            }
+
             .prize-form label {
-                font-size: 1.1em;
-                /* Ajustamos el margin-left para que se centre mejor en pantallas más pequeñas */
-                margin-left: 0; /* Lo eliminamos para que el texto ocupe todo el ancho disponible */
-                text-align: center; /* Centramos el texto del label si es necesario */
-                width: 100%; /* Ocupa todo el ancho disponible */
-                padding: 0 10px; /* Pequeño padding para que no toque los bordes */
+                margin-left: 0;
+                width: 100%;
+                text-align: left;
+                padding: 0 10px;
             }
             
             .prize-form input[type="text"],
             .prize-form input[type="time"] {
-                width: calc(100% - 30px); /* Ajustar el ancho para un padding menor */
-                padding: 15px; /* Menos padding en inputs */
+                width: calc(100% - 20px);
+                padding: 15px 10px;
                 font-size: 1.1em;
             }
 
             .prize-form button {
-                padding: 15px 30px; /* Menos padding en botón */
+                padding: 15px 30px;
                 font-size: 1.3em;
             }
 
             #confirmationMessage {
-                font-size: 1.3em; /* Reducir tamaño del mensaje de confirmación */
+                font-size: 1.3em;
             }
 
             .signature {
@@ -388,7 +394,7 @@
             }
 
             h1 {
-                font-size: 2.2em; /* Más reducción para el título principal */
+                font-size: 2.2em;
             }
 
             h2 {
@@ -407,7 +413,7 @@
             }
 
             .instructions {
-                padding: 20px; /* Más reducción de padding */
+                padding: 20px;
             }
 
             .instructions h3 {
@@ -416,9 +422,9 @@
             }
 
             .instructions li {
-                font-size: 0.95em; /* Ligeramente más pequeño */
+                font-size: 0.95em;
                 margin-bottom: 20px;
-                padding-left: 35px; /* Ajustar padding */
+                padding-left: 35px;
             }
 
             .instructions li strong {
@@ -426,7 +432,7 @@
             }
 
             .instructions li::before {
-                width: 28px; /* Números más pequeños */
+                width: 28px;
                 height: 28px;
                 font-size: 1em;
             }
@@ -446,19 +452,17 @@
             }
 
             .prize-form {
-                gap: 15px; /* Menos espacio entre campos */
+                gap: 15px;
             }
 
             .prize-form label {
-                font-size: 1em; /* Labels más pequeños */
-                text-align: left; /* Volvemos a alinear a la izquierda, pero con padding */
-                padding: 0 5px; /* Pequeño padding a los lados */
+                padding: 0 5px;
             }
 
             .prize-form input[type="text"],
             .prize-form input[type="time"] {
-                width: calc(100% - 20px); /* Ajustar el ancho para un padding muy pequeño */
-                padding: 12px; /* Más reducción */
+                width: calc(100% - 10px);
+                padding: 12px 5px;
                 font-size: 1em;
             }
 
