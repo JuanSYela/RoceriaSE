@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Día Chocolate Sol para Camila ☀️</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to top, #020111, #191621);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            animation: sunrise 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes sunrise {
+            0% {
+                background: linear-gradient(to top, #020111, #191621);
+            }
+            33% {
+                background: linear-gradient(to top, #3a1c71, #d76d77);
+            }
+            66% {
+                background: linear-gradient(to top, #d76d77, #ff9966);
+            }
+            100% {
+                background: linear-gradient(to top, #ff9966, #ff5e62);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em; /* Un poco más grande */
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+        }
+
+        h2 {
+            font-weight: normal;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+        }
+
+        .soundcloud {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px; /* Bordes más redondeados */
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); /* Sombra más fuerte */
+            margin-bottom: 25px; /* Más espacio */
+            z-index: 10;
+        }
+
+        .credits {
+            font-size: 10px;
+            color: #cccccc;
+            line-break: anywhere;
+            word-break: normal;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+            font-weight: 100;
+            margin-bottom: 30px;
+        }
+
+        .credits a {
+            color: #cccccc;
+            text-decoration: none;
+        }
+
+        .message {
+            margin-top: 25px; /* Más espacio */
+            font-size: 1.3em; /* Texto un poco más grande */
+            max-width: 750px; /* Ancho máximo un poco mayor */
+            line-height: 1.7; /* Mayor interlineado */
+            margin-bottom: 25px; /* Más espacio */
+            padding: 0 15px; /* Pequeño padding para móviles */
+        }
+
+        .heart {
+            font-size: 2.5em; /* Emojis más grandes */
+            margin-top: 25px; /* Más espacio */
+            margin-bottom: 40px; /* Más espacio para separar */
+        }
+
+        .instructions {
+            background-color: rgba(255, 255, 255, 0.15); /* Fondo un poco más visible */
+            border-radius: 20px; /* Más redondeado */
+            padding: 40px; /* Más padding interno */
+            max-width: 750px; /* Ancho máximo un poco mayor */
+            margin-top: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+            text-align: left;
+            margin-bottom: 50px; /* Más espacio antes del premio */
+        }
+
+        .instructions h3 {
+            font-size: 2.2em; /* Título de instrucciones más grande */
+            margin-bottom: 25px; /* Más espacio */
+            color: #ffde59; /* Un dorado más vibrante para el título */
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .instructions ol {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Mejora para el texto dentro de los li para mejorar la lectura */
+        .instructions li strong {
+            display: block;
+            margin-bottom: 8px; /* Más espacio debajo del título del paso */
+            font-size: 1.35em; /* Título del paso aún más grande */
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Sombra para el texto en negrita */
+        }
+
+        .instructions li {
+            margin-bottom: 35px; /* Mucho más espacio entre cada paso */
+            font-size: 1.2em; /* Texto del paso un poco más grande */
+            position: relative;
+            padding-left: 45px; /* Más padding para el número */
+            line-height: 1.6; /* Mayor interlineado del texto de cada paso */
+            padding-right: 10px; /* Pequeño padding para que el texto no toque el borde en móviles */
+        }
+
+        .instructions li:last-child {
+            margin-bottom: 0;
+        }
+
+        .instructions li::before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            background-color: #ff9966;
+            color: #191621;
+            border-radius: 50%;
+            width: 35px; /* Número más grande */
+            height: 35px; /* Número más grande */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em; /* Texto del número más grande */
+            position: absolute;
+            left: 0;
+            top: 0;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Sombra para el número */
+        }
+
+        /* Estilos para la sección del premio sorpresa */
+        .surprise-prize {
+            background-color: rgba(255, 223, 186, 0.2); /* Fondo un poco más visible */
+            border-radius: 25px; /* Más redondeado */
+            padding: 50px; /* Más padding interno */
+            max-width: 750px; /* Ancho máximo un poco mayor */
+            margin-top: 50px; /* Más espacio */
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7); /* Sombra más fuerte */
+            text-align: center;
+            border: 3px solid #ffde59; /* Borde más grueso y dorado */
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
+            }
+            100% {
+                transform: scale(1.02);
+                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        .surprise-prize h3 {
+            font-size: 2.5em; /* Título del premio más grande */
+            color: #ffde59; /* Dorado vibrante */
+            margin-bottom: 30px; /* Más espacio */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .surprise-prize p {
+            font-size: 1.4em; /* Texto del premio más grande */
+            margin-bottom: 35px; /* Más espacio */
+            line-height: 1.6; /* Mayor interlineado */
+        }
+
+        .prize-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Más espacio entre campos */
+            align-items: center;
+        }
+
+        .prize-form label {
+            font-size: 1.2em; /* Label un poco más grande */
+            align-self: flex-start;
+            margin-left: calc(50% - 250px);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .prize-form input[type="text"],
+        .prize-form input[type="time"] {
+            width: calc(100% - 40px);
+            max-width: 500px;
+            padding: 18px; /* Más padding */
+            border-radius: 12px; /* Más redondeado */
+            border: 2px solid #ffcc99; /* Borde más grueso */
+            background-color: rgba(255, 255, 255, 0.15); /* Fondo un poco más visible */
+            color: white;
+            font-size: 1.2em; /* Texto de input más grande */
+            box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.3); /* Sombra más fuerte */
+            transition: all 0.3s ease;
+        }
+
+        .prize-form input[type="text"]:focus,
+        .prize-form input[type="time"]:focus {
+            border-color: #ff5e62;
+            box-shadow: 0 0 12px rgba(255, 94, 98, 0.6), inset 0 3px 8px rgba(0, 0, 0, 0.3); /* Sombra al enfocar */
+            outline: none;
+        }
+
+        .prize-form button {
+            background-color: #ff9966;
+            color: #191621;
+            padding: 18px 35px; /* Más padding */
+            border: none;
+            border-radius: 12px; /* Más redondeado */
+            font-size: 1.4em; /* Botón más grande */
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+            margin-top: 15px; /* Más espacio encima del botón */
+        }
+
+        .prize-form button:hover {
+            background-color: #ff5e62;
+            transform: translateY(-3px); /* Efecto hover más pronunciado */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .prize-form button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #confirmationMessage {
+            margin-top: 30px; /* Más espacio */
+            font-size: 1.6em; /* Mensaje de confirmación más grande */
+            color: #76ff76; /* Verde más brillante */
+            font-weight: bold;
+            display: none;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Sombra más fuerte */
+        }
+        
+        .signature {
+            margin-top: 50px; /* Espacio antes de la firma */
+            font-size: 0.8em; /* Letra pequeña */
+            color: #ccc; /* Color gris suave */
+            opacity: 0.7; /* Ligeramente transparente */
+        }
+    </style>
+</head>
+<body>
+    <h1>Un Día Chocolate Sol ☀️</h1>
+    <h2>Un podcast creado para Camila 🎧</h2>
+
+    <div class="soundcloud">
+        <iframe id="soundcloud-player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2119691853&color=%23ff5500&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/juan-y-441959238" title="Juan Y" target="_blank" style="color: #cccccc; text-decoration: none;">Juan Y</a> · <a href="https://soundcloud.com/juan-y-441959238/jcal" title="JCAL" target="_blank" style="color: #cccccc; text-decoration: none;">JCAL</a></div>
+    </div>
+
+    <div class="message">
+        <p>¡Hola, Camila! 👋 Este podcast especial es un recordatorio para ti: incluso cuando los días se nublan un poquito ☁️, ¡siempre hay un nuevo amanecer más brillante esperando! ✨</p>
+        <p class="heart">☀️🍫💛</p>
+    </div>
+
+    <div class="instructions">
+        <h3>Tu Guía de Supervivencia para esos Días Chocolate Sol 🍫✨</h3>
+        <p>¡Prepárate para activar tu modo "felicidad instantánea" con estos sencillos y divertidos pasos! (Advertencia: puede causar sonrisas incontrolables, ganas de bailar ¡y antojo de chocolate! 🥳).</p>
+        <ol style="counter-reset: step-counter;">
+            <li>
+                <strong>Paso 1: ¡Enciende la Chispa Musical de tu Día! 🎶</strong>
+                <a href="https://music.youtube.com/watch?v=BNZCfsAOAvs&si=3FgiWc_yu03FdqFO" target="_blank">Haz clic aquí para ir a YouTube</a>. Esta es la banda sonora oficial para transformar tu "día gris" en una fiesta de color. ¡A subir el volumen y disfrutar! 🔊
+            </li>
+            <li>
+                <strong>Paso 2: Activa tu Superpoder Chocolate Interno. 🍫💖</strong>
+                Cierra los ojos y haz tres inhalaciones profundas, como si estuvieras aspirando el aroma de la torta de chocolate más épica del universo. ¡Siente cómo la dulzura inunda cada rincón de tu ser y te carga de energía positiva! ✨
+            </li>
+            <li>
+                <strong>Paso 3: ¡Baila como si nadie te viera (o como si tu perro te estuviera juzgando)! 🕺💃</strong>
+                Este paso es OBLIGATORIO. No hay excusas. Pon esa canción que te acelera el corazón y muévete. ¡Libera ese ritmo que llevas dentro y deja que la alegría te invada! 🌟
+            </li>
+            <li>
+                <strong>Paso 4: Garabatea a tu Sol con Gafas y Bigote. ✏️😎</strong>
+                Si sientes que el cerebro se te va a derretir, agarra el lápiz más cercano y dibuja un sol con gafas de sol y un bigote al estilo Salvador Dalí. Si el resultado parece hecho por un niño de 3 años... ¡Felicidades, has creado arte abstracto moderno! 🎨 (¡Y no olvides enviarme la foto, que la quiero para mi colección de obras maestras! 😂)
+            </li>
+            <li>
+                <strong>Paso 5: La Gratitud Chococolatada. 🙏❤️</strong>
+                Justo antes de caer rendida en los brazos de Morfeo 😴, anota 3 cosas geniales que te hayan pasado hoy. Puede ser desde haberte comido un chocolate sin culpa 😋 hasta haber recibido un meme que te hizo reír a carcajadas 😂. ¡Tu cerebro te lo agradecerá durmiendo a pata suelta y sin preocupaciones! 😌
+            </li>
+        </ol>
+        <p>¡Y recuerda, Camila! Eres la mejor Psicóloga que he conocido, ¡un verdadero rayo de sol! 😉☀️</p>
+    </div>
+
+    <div class="surprise-prize">
+        <h3>¡Felicidades, Camila! ¡Te has ganado una Sorpresa Mágica! 🎉🎁</h3>
+        <p>Como la mejor psicóloga que conozco y por ser tú, te has hecho acreedora a un detalle especial para endulzar aún más tu día. Y no te preocupes, esto **no es una estafa**, ¡a menos que creas que la felicidad es una! 😉 Piénsalo: ¿cuántas estafas te ofrecen algo rico sin pedirte la clave de tu tarjeta? Exacto. ¡Ninguna! 😂</p>
+        <p>Para coordinar esta entrega misteriosa (pero deliciosamente real), por favor, dime:</p>
+
+        <form id="prizeForm" class="prize-form" action="https://formspree.io/f/xjkrpjjg" method="POST">
+            <label for="address">¿Dónde te encuentro para que la magia llegue? (Tu dirección exacta en Ibagué): 📍</label>
+            <input type="text" id="address" name="address" placeholder="Ej: Calle 10 # 20-30, Apto 401, Barrio Centro" required>
+
+            <label for="deliveryTime">¿A qué hora te gustaría que la sorpresa toque tu puerta? (Hora preferida): ⏰</label>
+            <input type="time" id="deliveryTime" name="deliveryTime" required>
+
+            <button type="submit">¡Enviar para que llegue la magia! ✨🚀</button>
+        </form>
+        <p style="font-size: 0.9em; margin-top: 20px;">
+            ¡Tranquila! Tu información es **súper secreta y segura** 🔒. La trataré con más cuidado que el último trozo de chocolate. Solo la usaré para que tu sorpresa llegue directamente a tus manos. ¡Prometido! 💪
+        </p>
+        <p id="confirmationMessage" style="color: #aaffaa; margin-top: 30px; display: none;">¡Genial! Tu información ha sido enviada. ¡Prepárate para la sorpresa! 🥳🚀</p>
+    </div>
+
+    <p class="signature">
+        Con cariño, Juan Yela
+    </p>
+
+    <script>
+        // Función para reproducir el audio de SoundCloud después de un retraso
+        window.onload = function() {
+            setTimeout(function() {
+                var iframe = document.getElementById('soundcloud-player');
+                iframe.contentWindow.postMessage(JSON.stringify({ method: 'play' }), '*');
+            }, 3000); // 3000 milisegundos = 3 segundos
+
+            // Script para manejar el formulario del premio con Formspree
+            const prizeForm = document.getElementById('prizeForm');
+            const confirmationMessage = document.getElementById('confirmationMessage');
+
+            prizeForm.addEventListener('submit', async function(event) {
+                event.preventDefault(); // Detiene el envío normal del formulario
+
+                const formData = new FormData(prizeForm); // Recoge los datos del formulario
+
+                try {
+                    const response = await fetch(prizeForm.action, {
+                        method: prizeForm.method,
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        prizeForm.style.display = 'none';
+                        confirmationMessage.style.display = 'block';
+                    } else {
+                        const errorData = await response.json();
+                        alert('Hubo un error al enviar la información: ' + (errorData.errors ? errorData.errors.map(e => e.message).join(', ') : 'Desconocido'));
+                    }
+                } catch (error) {
+                    console.error('Error al enviar el formulario:', error);
+                    alert('Hubo un error de conexión. Por favor, inténtalo de nuevo.');
+                }
+            });
+        };
+    </script>
+</body>
+</html>
