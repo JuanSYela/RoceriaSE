@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerTwin AI - Enlaza GEB</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --enlaza-blue-dark: #001A33;
+            --enlaza-blue-corp: #002A54;
+            --enlaza-green: #97BE0D;
+            --electric-cyan: #00D1FF;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: var(--enlaza-blue-dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* --- Hero Header --- */
+        .hero-header {
+            background: linear-gradient(90deg, var(--enlaza-blue-corp) 0%, #004080 100%);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--enlaza-green);
+        }
+
+        .brand-box { display: flex; align-items: center; gap: 20px; }
+        .brand-box img { height: 50px; filter: brightness(1.2); }
+        
+        .project-title {
+            border-left: 2px solid var(--enlaza-green);
+            padding-left: 20px;
+        }
+        .project-title h1 { 
+            margin: 0; font-size: 1.4rem; letter-spacing: 1px; color: var(--electric-cyan);
+        }
+        .project-title p { 
+            margin: 0; font-size: 0.8rem; font-weight: 300; opacity: 0.9; 
+        }
+
+        /* --- Interactive Dual Viewer --- */
+        .viewport-container {
+            position: relative;
+            width: 100vw;
+            height: 55vh;
+            background: #000;
+            border-bottom: 2px solid var(--enlaza-blue-corp);
+        }
+
+        /* Capa Primtech (Diseño) */
+        .layer-base {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://www.primtech.com/assets/images/3/primtechDTOverview_1-5ada29b5.webp');
+            background-size: cover; background-position: center;
+        }
+
+        /* Capa Luma (Realidad Interactiva) */
+        .layer-reveal {
+            position: absolute;
+            top: 0; right: 0; width: 50%; height: 100%;
+            z-index: 5; 
+            overflow: hidden;
+            border-left: 4px solid var(--enlaza-green);
+            background: #000;
+        }
+
+        /* Importante: El iframe ocupa todo el ancho de la pantalla para no deformarse */
+        .layer-reveal iframe {
+            width: 100vw; height: 100%;
+            position: absolute; right: 0;
+            pointer-events: all; /* Permite rotar el modelo */
+        }
+
+        /* Slider de comparación mejorado */
+        .ui-slider {
+            position: absolute; top: 0; width: 100%; height: 100%;
+            -webkit-appearance: none; background: transparent;
+            z-index: 10; pointer-events: none; /* Deja pasar clicks al iframe excepto en el handle */
+            margin: 0;
+        }
+
+        /* El "tirador" del slider si debe recibir clicks */
+        .ui-slider::-webkit-slider-thumb {
+            -webkit-appearance: none; pointer-events: all;
+            width: 40px; height: 40px;
+            background: var(--enlaza-green);
+            border: 4px solid var(--enlaza-blue-dark);
+            border-radius: 50%; cursor: ew-resize;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* --- Gantt & Data Panel --- */
+        .data-section {
+            display: grid; grid-template-columns: 1.5fr 1fr;
+            padding: 30px 5%; gap: 30px;
+            background: radial-gradient(circle at top, #002A54 0%, #001A33 100%);
+        }
+
+        .gantt-panel {
+            background: rgba(255,255,255,0.05);
+            padding: 20px; border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .gantt-row {
+            display: grid; grid-template-columns: 200px 1fr 60px;
+            align-items: center; gap: 15px; margin-bottom: 15px;
+        }
+
+        .bar-bg { background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px; }
+        .bar-fill { height: 100%; border-radius: 5px; background: var(--enlaza-green); transition: 0.5s; }
+
+        .progress-circle {
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 8px solid var(--enlaza-green);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            margin: 0 auto; box-shadow: 0 0 30px rgba(151, 190, 13, 0.3);
+        }
+
+        .progress-circle h2 { margin: 0; font-size: 2.5rem; }
+
+        .status-tag {
+            display: inline-block; padding: 4px 12px;
+            background: var(--enlaza-green); color: var(--enlaza-blue-dark);
+            font-weight: bold; border-radius: 4px; font-size: 10px; margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="hero-header">
+        <div class="brand-box">
+            <img src="https://static.grupoenergiabogota.com/transmision-frontend/1.0.42/dist/images/logo_enlaza.png" alt="Logo Enlaza">
+            <div class="project-title">
+                <h1>PowerTwin AI</h1>
+                <p>El cerebro digital de las subestaciones Enlaza</p>
+            </div>
+        </div>
+        <div style="text-align: right">
+            <div class="status-tag">SISTEMA OPERATIVO</div>
+            <p style="font-size: 10px; margin-top: 5px;">ID: SUB-ENL-2026</p>
+        </div>
+    </header>
+
+    <div class="viewport-container">
+        <div class="layer-base"></div>
+
+        <div class="layer-reveal" id="luma-view">
+            <iframe 
+                src="https://lumalabs.ai/embed/528ccb69-9637-40e7-917c-2058588ffa1e?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&cinematicVideo=undefined&showMenu=false"
+                frameborder="0">
+            </iframe>
+        </div>
+
+        <input type="range" min="0" max="100" value="50" class="ui-slider" id="comp-slider">
+    </div>
+
+    <section class="data-section">
+        <div class="gantt-panel">
+            <h3 style="color: var(--enlaza-green); margin-top: 0;">Cronograma Maestro de Obra</h3>
+            
+            <div class="gantt-row">
+                <span style="font-size: 12px;">Cimentaciones Críticas</span>
+                <div class="bar-bg"><div class="bar-fill" style="width: 100%;"></div></div>
+                <span style="font-size: 12px;">100%</span>
+            </div>
+            
+            <div class="gantt-row">
+                <span style="font-size: 12px;">Montaje Electromecánico</span>
+                <div class="bar-bg"><div class="bar-fill" style="width: 75%;"></div></div>
+                <span style="font-size: 12px;">75%</span>
+            </div>
+
+            <div class="gantt-row">
+                <span style="font-size: 12px;">Pruebas de Transformadores</span>
+                <div class="bar-bg"><div class="bar-fill" id="dynamic-bar" style="width: 40%;"></div></div>
+                <span style="font-size: 12px;" id="dynamic-val">40%</span>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <label style="font-size: 10px; opacity: 0.7;">ACTUALIZAR AVANCE MANUAL (PRUEBAS):</label><br>
+                <input type="range" min="0" max="100" value="40" id="manual-progress" style="width: 100%; accent-color: var(--enlaza-green);">
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <div class="progress-circle">
+                <p style="font-size: 10px; margin: 0;">AVANCE GLOBAL</p>
+                <h2 id="global-perc">71%</h2>
+            </div>
+            <p style="font-size: 12px; margin-top: 20px; opacity: 0.8;">
+                Sincronización de nube de puntos: <strong>Excelente</strong><br>
+                Latencia de sensorica: <strong>12ms</strong>
+            </p>
+            <button style="border: 2px solid var(--electric-cyan); background: transparent; color: var(--electric-cyan); padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold;">
+                ANALIZAR DISCREPANCIAS AI
+            </button>
+        </div>
+    </section>
+
+    <script>
+        const slider = document.getElementById('comp-slider');
+        const lumaView = document.getElementById('luma-view');
+        
+        // Slider funcional para comparar
+        slider.addEventListener('input', (e) => {
+            lumaView.style.width = (100 - e.target.value) + '%';
+        });
+
+        // Simulación de Gantt interactivo
+        const manualProgress = document.getElementById('manual-progress');
+        const dynamicBar = document.getElementById('dynamic-bar');
+        const dynamicVal = document.getElementById('dynamic-val');
+        const globalPerc = document.getElementById('global-perc');
+
+        manualProgress.addEventListener('input', (e) => {
+            const val = e.target.value;
+            dynamicBar.style.width = val + '%';
+            dynamicVal.innerText = val + '%';
+            
+            // Cálculo ficticio del avance global basado en el slider
+            const base = 58; 
+            const total = base + (val * 0.2);
+            globalPerc.innerText = Math.round(total) + '%';
+        });
+    </script>
+</body>
+</html>
