@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Daniela Cumple 30! 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --rosa:#ff6b9d;
+  --rosa-deep:#e8457a;
+  --gold:#ffd700;
+  --gold-soft:#ffecb3;
+  --plum:#6b2d5b;
+  --plum-light:#8e4585;
+  --cream:#fff8f0;
+  --dark:#1a0a14;
+  --pink-glow:rgba(255,107,157,.3);
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--dark);
+  color:var(--cream);
+  overflow-x:hidden;
+  min-height:100vh;
+  cursor:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><text y='18' font-size='18'>✨</text></svg>") 12 12,auto;
+}
+
+/* === HERO === */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  position:relative;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,rgba(110,30,80,.6),transparent),
+    radial-gradient(circle at 20% 80%,rgba(255,107,157,.15),transparent 50%),
+    radial-gradient(circle at 80% 20%,rgba(255,215,0,.1),transparent 50%),
+    var(--dark);
+  padding:2rem;
+  text-align:center;
+}
+
+/* floating sparkles */
+.sparkle{
+  position:absolute;
+  width:6px;height:6px;
+  background:var(--gold);
+  border-radius:50%;
+  animation:float-sparkle linear infinite;
+  opacity:0;
+  pointer-events:none;
+}
+@keyframes float-sparkle{
+  0%{transform:translateY(100vh) scale(0);opacity:0}
+  10%{opacity:1}
+  90%{opacity:.8}
+  100%{transform:translateY(-10vh) scale(1.2);opacity:0}
+}
+
+.pretitle{
+  font-family:'Sacramento',cursive;
+  font-size:clamp(1.4rem,4vw,2.4rem);
+  color:var(--gold);
+  opacity:0;
+  animation:fadeUp .8s .3s forwards;
+  text-shadow:0 0 30px rgba(255,215,0,.3);
+}
+
+h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,10vw,7rem);
+  font-weight:900;
+  line-height:1;
+  margin:.2em 0 .1em;
+  opacity:0;
+  animation:fadeUp .8s .6s forwards;
+  background:linear-gradient(135deg,var(--cream) 0%,var(--gold) 50%,var(--rosa) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 4px 30px var(--pink-glow));
+}
+
+h1 .thirty{
+  display:block;
+  font-size:1.6em;
+  letter-spacing:-.04em;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--rosa-deep) 100%);
+  -webkit-background-clip:text;background-clip:text;
+}
+
+.subtitle{
+  font-size:clamp(1rem,2.5vw,1.4rem);
+  font-weight:300;
+  letter-spacing:.1em;
+  color:rgba(255,248,240,.7);
+  margin-bottom:2rem;
+  opacity:0;
+  animation:fadeUp .8s .9s forwards;
+}
+
+.subtitle em{
+  color:var(--rosa);
+  font-style:italic;
+  font-family:'Playfair Display',serif;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* === COUNTDOWN === */
+.countdown-section{
+  padding:4rem 2rem;
+  text-align:center;
+  position:relative;
+  background:
+    linear-gradient(180deg,var(--dark) 0%,rgba(107,45,91,.15) 50%,var(--dark) 100%);
+}
+
+.countdown-label{
+  font-family:'Sacramento',cursive;
+  font-size:clamp(1.6rem,4vw,2.6rem);
+  color:var(--gold);
+  margin-bottom:2rem;
+  text-shadow:0 0 20px rgba(255,215,0,.2);
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:clamp(1rem,3vw,2.5rem);
+  flex-wrap:wrap;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.time-block{
+  position:relative;
+  width:clamp(100px,20vw,160px);
+  padding:1.5rem 1rem;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,215,0,.15);
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  transition:transform .3s,box-shadow .3s;
+}
+.time-block:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 20px 60px rgba(255,107,157,.15),0 0 40px rgba(255,215,0,.1);
+  border-color:rgba(255,215,0,.4);
+}
+
+.time-number{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,7vw,4.5rem);
+  font-weight:900;
+  background:linear-gradient(180deg,var(--cream),var(--gold));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  line-height:1;
+}
+
+.time-label{
+  font-size:.85rem;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  color:rgba(255,248,240,.5);
+  margin-top:.4rem;
+}
+
+/* === BETTY LA FEA SECTION === */
+.betty-section{
+  padding:5rem 2rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.betty-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 50%,rgba(255,107,157,.08),transparent 60%),
+    radial-gradient(circle at 70% 50%,rgba(255,215,0,.06),transparent 60%);
+}
+
+.betty-card{
+  max-width:700px;
+  margin:0 auto;
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid rgba(255,107,157,.2);
+  border-radius:24px;
+  padding:3rem 2.5rem;
+  position:relative;
+  overflow:hidden;
+}
+
+.betty-card::after{
+  content:'💐';
+  position:absolute;
+  top:-10px;right:-10px;
+  font-size:4rem;
+  opacity:.3;
+  transform:rotate(15deg);
+}
+
+.betty-quote{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.2rem,3vw,1.8rem);
+  font-style:italic;
+  line-height:1.6;
+  color:var(--cream);
+  margin-bottom:1.5rem;
+}
+
+.betty-quote .highlight{
+  color:var(--rosa);
+  font-weight:700;
+}
+
+.betty-attribution{
+  font-family:'Sacramento',cursive;
+  font-size:1.4rem;
+  color:var(--gold);
+}
+
+/* === FUN ZONE === */
+.fun-zone{
+  padding:5rem 2rem;
+  text-align:center;
+  position:relative;
+}
+
+.fun-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,5vw,3rem);
+  margin-bottom:1rem;
+  color:var(--cream);
+}
+
+.fun-subtitle{
+  font-size:1.1rem;
+  color:rgba(255,248,240,.6);
+  margin-bottom:3rem;
+  font-weight:300;
+}
+
+/* The Runaway Button */
+.runaway-container{
+  position:relative;
+  width:100%;
+  height:300px;
+  max-width:800px;
+  margin:0 auto 3rem;
+  border:1px dashed rgba(255,215,0,.2);
+  border-radius:24px;
+  overflow:hidden;
+  background:rgba(255,255,255,.02);
+}
+
+.runaway-btn{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  padding:1rem 2.5rem;
+  font-family:'Outfit',sans-serif;
+  font-size:1.1rem;
+  font-weight:600;
+  border:2px solid var(--rosa);
+  background:linear-gradient(135deg,var(--rosa-deep),var(--plum));
+  color:white;
+  border-radius:60px;
+  cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:0 8px 30px rgba(255,107,157,.3);
+  z-index:10;
+  white-space:nowrap;
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+.runaway-btn:hover{
+  box-shadow:0 12px 40px rgba(255,107,157,.5);
+}
+
+.runaway-btn.caught{
+  animation:caughtPulse .6s;
+  background:linear-gradient(135deg,var(--gold),#ff9800);
+  border-color:var(--gold);
+}
+
+@keyframes caughtPulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) scale(1.2)}
+}
+
+.catch-counter{
+  margin-top:1rem;
+  font-size:.9rem;
+  color:rgba(255,248,240,.5);
+}
+
+.catch-counter span{
+  color:var(--gold);
+  font-weight:700;
+  font-size:1.1rem;
+}
+
+/* confetti canvas */
+#confetti-canvas{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* === TRAITS === */
+.traits-section{
+  padding:5rem 2rem;
+  text-align:center;
+}
+
+.traits-section .section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  margin-bottom:3rem;
+}
+
+.traits-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.trait-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,215,0,.1);
+  border-radius:20px;
+  padding:2rem 1.5rem;
+  transition:transform .3s,border-color .3s;
+  cursor:default;
+}
+.trait-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--rosa);
+}
+
+.trait-emoji{
+  font-size:2.5rem;
+  margin-bottom:.8rem;
+  display:block;
+}
+
+.trait-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+  font-weight:700;
+  margin-bottom:.4rem;
+  color:var(--gold);
+}
+
+.trait-desc{
+  font-size:.9rem;
+  color:rgba(255,248,240,.6);
+  line-height:1.5;
+}
+
+/* === DESSERT ZONE === */
+.dessert-section{
+  padding:5rem 2rem;
+  text-align:center;
+}
+
+.dessert-title{
+  font-family:'Sacramento',cursive;
+  font-size:clamp(2rem,5vw,3.5rem);
+  color:var(--gold);
+  margin-bottom:1rem;
+}
+
+.cake-container{
+  font-size:clamp(6rem,15vw,10rem);
+  margin:2rem 0;
+  animation:cakeBounce 2s ease-in-out infinite;
+  cursor:pointer;
+  user-select:none;
+  -webkit-user-select:none;
+}
+
+@keyframes cakeBounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+
+.cake-message{
+  font-size:1rem;
+  color:rgba(255,248,240,.5);
+  font-style:italic;
+}
+
+/* === MESSAGE === */
+.message-section{
+  padding:5rem 2rem 8rem;
+  text-align:center;
+}
+
+.message-box{
+  max-width:650px;
+  margin:0 auto;
+  background:
+    linear-gradient(145deg,rgba(255,107,157,.08),rgba(107,45,91,.1));
+  border:1px solid rgba(255,215,0,.2);
+  border-radius:24px;
+  padding:3rem 2.5rem;
+  position:relative;
+}
+
+.message-box .hearts{
+  position:absolute;
+  top:-20px;left:50%;
+  transform:translateX(-50%);
+  font-size:2rem;
+}
+
+.message-text{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  line-height:1.8;
+  color:var(--cream);
+  font-style:italic;
+}
+
+.message-sign{
+  font-family:'Sacramento',cursive;
+  font-size:2rem;
+  color:var(--rosa);
+  margin-top:1.5rem;
+}
+
+/* === SCROLL ARROW === */
+.scroll-arrow{
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  animation:bounce 2s infinite;
+  font-size:1.5rem;
+  opacity:.5;
+}
+@keyframes bounce{
+  0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}
+  40%{transform:translateX(-50%) translateY(-12px)}
+  60%{transform:translateX(-50%) translateY(-6px)}
+}
+
+/* === FLYING EMOJIS === */
+.flying-emoji{
+  position:fixed;
+  font-size:2rem;
+  pointer-events:none;
+  z-index:100;
+  animation:flyAway 2s forwards;
+}
+@keyframes flyAway{
+  0%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
+  100%{opacity:0;transform:translateY(-300px) scale(.3) rotate(360deg)}
+}
+
+/* mobile */
+@media(max-width:600px){
+  .countdown{gap:.8rem}
+  .time-block{width:calc(50% - .8rem);padding:1.2rem .8rem}
+  .betty-card{padding:2rem 1.5rem}
+  .runaway-container{height:250px}
+  .message-box{padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <p class="pretitle">¡Se acercan los fabulosos...</p>
+  <h1>Daniela<span class="thirty">30</span></h1>
+  <p class="subtitle">Ingeniera, hermosa, fan de <em>Betty la Fea</em> y amante de los postres 🍰</p>
+  <div class="scroll-arrow">↓</div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-section" id="countdown">
+  <p class="countdown-label">La cuenta regresiva ha comenzado...</p>
+  <div class="countdown">
+    <div class="time-block">
+      <div class="time-number" id="days">00</div>
+      <div class="time-label">Días</div>
+    </div>
+    <div class="time-block">
+      <div class="time-number" id="hours">00</div>
+      <div class="time-label">Horas</div>
+    </div>
+    <div class="time-block">
+      <div class="time-number" id="minutes">00</div>
+      <div class="time-label">Minutos</div>
+    </div>
+    <div class="time-block">
+      <div class="time-number" id="seconds">00</div>
+      <div class="time-label">Segundos</div>
+    </div>
+  </div>
+</section>
+
+<!-- BETTY LA FEA -->
+<section class="betty-section">
+  <div class="betty-card">
+    <p class="betty-quote">
+      "Los 30 no son el fin del mundo, son el comienzo de la <span class="highlight">mejor versión</span> de ti misma... y tú ya eras <span class="highlight">increíble</span> antes de llegar aquí."
+    </p>
+    <p class="betty-attribution">— Inspirado en el espíritu de Betty 💋</p>
+  </div>
+</section>
+
+<!-- TRAITS -->
+<section class="traits-section">
+  <h2 class="section-title">Así de <span style="color:var(--rosa)">maravillosa</span> es Daniela</h2>
+  <div class="traits-grid">
+    <div class="trait-card">
+      <span class="trait-emoji">⚡</span>
+      <div class="trait-title">Ingeniera</div>
+      <div class="trait-desc">Cerebro poderoso que domina subestaciones de alta tensión. Literal y figurativamente... de alto voltaje.</div>
+    </div>
+    <div class="trait-card">
+      <span class="trait-emoji">👑</span>
+      <div class="trait-title">Hermosa</div>
+      <div class="trait-desc">Una belleza que no necesita filtros, ni Instagram, ni PowerPoint para brillar.</div>
+    </div>
+    <div class="trait-card">
+      <span class="trait-emoji">📺</span>
+      <div class="trait-title">Fan de Betty la Fea</div>
+      <div class="trait-desc">Porque las verdaderas reinas saben que la belleza interior siempre gana... pero ella tiene ambas.</div>
+    </div>
+    <div class="trait-card">
+      <span class="trait-emoji">🍰</span>
+      <div class="trait-title">Amante de Postres</div>
+      <div class="trait-desc">Si la vida te da 30 años, que sea con torta, brownies y todo el dulce del mundo.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FUN ZONE -->
+<section class="fun-zone">
+  <h2 class="fun-title">¿No quieres cumplir 30? 😏</h2>
+  <p class="fun-subtitle">¡Intenta atrapar el botón para cancelar tu cumpleaños!</p>
+
+  <div class="runaway-container" id="runaway-area">
+    <button class="runaway-btn" id="runaway-btn">❌ Cancelar los 30</button>
+  </div>
+  <p class="catch-counter">Intentos: <span id="attempts">0</span> | Atrapado: <span id="caught">0</span> veces</p>
+</section>
+
+<!-- DESSERTS -->
+<section class="dessert-section">
+  <p class="dessert-title">Tu torta de los 30 🎂</p>
+  <div class="cake-container" id="cake" title="¡Haz clic para soplar las velas!">🎂</div>
+  <p class="cake-message" id="cake-msg">← Haz clic en la torta para soplar las velas →</p>
+</section>
+
+<!-- MESSAGE -->
+<section class="message-section">
+  <div class="message-box">
+    <div class="hearts">💕</div>
+    <p class="message-text">
+      Daniela, los 30 no son para temerles... son para abrazarlos con la misma fuerza con la que tú abrazas cada reto.
+      Eres brillante, hermosa, y cada año que pasa solo te hace más increíble.
+      <br><br>
+      ¡Que estos 30 sean los más memorables! 🥂
+    </p>
+    <p class="message-sign">Con cariño ❤️</p>
+  </div>
+</section>
+
+<script>
+// === SPARKLES ===
+(function createSparkles(){
+  const hero=document.querySelector('.hero');
+  for(let i=0;i<25;i++){
+    const s=document.createElement('div');
+    s.className='sparkle';
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=(4+Math.random()*6)+'s';
+    s.style.animationDelay=Math.random()*8+'s';
+    s.style.width=s.style.height=(3+Math.random()*5)+'px';
+    s.style.background=Math.random()>.5?'var(--gold)':'var(--rosa)';
+    hero.appendChild(s);
+  }
+})();
+
+// === COUNTDOWN ===
+const birthday=new Date('2026-07-05T00:00:00-05:00'); // Colombia time
+
+function updateCountdown(){
+  const now=new Date();
+  let diff=birthday-now;
+  if(diff<=0){
+    document.querySelector('.countdown-label').textContent='🎉 ¡HOY ES EL DÍA! ¡FELICES 30, DANIELA! 🎉';
+    document.getElementById('days').textContent='🎂';
+    document.getElementById('hours').textContent='🥳';
+    document.getElementById('minutes').textContent='🎉';
+    document.getElementById('seconds').textContent='💃';
+    launchConfetti();
+    return;
+  }
+  const d=Math.floor(diff/864e5);
+  diff%=864e5;
+  const h=Math.floor(diff/36e5);
+  diff%=36e5;
+  const m=Math.floor(diff/6e4);
+  diff%=6e4;
+  const s=Math.floor(diff/1e3);
+  document.getElementById('days').textContent=String(d).padStart(2,'0');
+  document.getElementById('hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('minutes').textContent=String(m).padStart(2,'0');
+  document.getElementById('seconds').textContent=String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+// === RUNAWAY BUTTON ===
+const btn=document.getElementById('runaway-btn');
+const area=document.getElementById('runaway-area');
+let attempts=0,caught=0;
+const messages=[
+  "😂 ¡Nope!","🏃‍♀️ ¡Muy lenta!","💨 ¡Casi!","😜 ¡Los 30 son inevitables!",
+  "🎂 ¡No hay escape!","✨ ¡Acepta tu fabulosidad!","💃 ¡Betty cumplió 30 y mira!",
+  "👸 ¡Las reinas no huyen!","⚡ ¡Alta tensión no te salva!","🍰 Mejor come torta",
+  "🥳 ¡Los 30 te esperan!","💋 ¡Serás una treintañera divina!"
+];
+
+function moveBtn(){
+  const rect=area.getBoundingClientRect();
+  const bw=btn.offsetWidth, bh=btn.offsetHeight;
+  const maxX=rect.width-bw-20, maxY=rect.height-bh-20;
+  const nx=20+Math.random()*maxX, ny=20+Math.random()*maxY;
+  btn.style.left=nx+'px';
+  btn.style.top=ny+'px';
+  btn.style.transform='none';
+  btn.textContent=messages[Math.floor(Math.random()*messages.length)];
+  attempts++;
+  document.getElementById('attempts').textContent=attempts;
+}
+
+// desktop hover
+btn.addEventListener('mouseenter',function(e){
+  if(Math.random()>.15) moveBtn(); // 85% chance to escape
+});
+
+// mobile touch
+btn.addEventListener('touchstart',function(e){
+  if(Math.random()>.2){
+    e.preventDefault();
+    moveBtn();
+  } else {
+    caughtIt();
+  }
+},{passive:false});
+
+btn.addEventListener('click',function(){
+  if(Math.random()>.8) caughtIt(); // 20% chance on click
+  else moveBtn();
+});
+
+function caughtIt(){
+  caught++;
+  document.getElementById('caught').textContent=caught;
+  btn.classList.add('caught');
+  btn.textContent='🎉 ¡OK OK, los 30 serán geniales!';
+  launchConfetti();
+  setTimeout(()=>{
+    btn.classList.remove('caught');
+    btn.textContent='❌ Cancelar los 30';
+    btn.style.left='50%';
+    btn.style.top='50%';
+    btn.style.transform='translate(-50%,-50%)';
+  },2500);
+}
+
+// === CAKE CLICK ===
+const cake=document.getElementById('cake');
+const cakeMsg=document.getElementById('cake-msg');
+const cakeEmojis=['🎂','🍰','🧁','🍫','🍩','🍪','🎉','🥳','🍬'];
+let cakeClicks=0;
+
+cake.addEventListener('click',function(){
+  cakeClicks++;
+  // cycle emoji
+  cake.textContent=cakeEmojis[cakeClicks%cakeEmojis.length];
+  // fly emojis
+  for(let i=0;i<6;i++){
+    const em=document.createElement('div');
+    em.className='flying-emoji';
+    em.textContent=['🎂','✨','🎉','💃','🍰','⭐'][i];
+    em.style.left=(cake.getBoundingClientRect().left+cake.offsetWidth/2+Math.random()*60-30)+'px';
+    em.style.top=cake.getBoundingClientRect().top+'px';
+    em.style.animationDelay=(Math.random()*.3)+'s';
+    document.body.appendChild(em);
+    setTimeout(()=>em.remove(),2200);
+  }
+  const msgs=[
+    '🕯️ ¡Sopla más fuerte!','🎶 ¡Cumpleaños feliz!',
+    '🍫 ¡Más chocolate!','🎁 ¡Sorpresa!',
+    '👸 ¡30 y fabulosa!','🥂 ¡Salud!',
+    '💃 ¡A bailar!','✨ ¡La mejor década!'
+  ];
+  cakeMsg.textContent=msgs[cakeClicks%msgs.length];
+  if(cakeClicks%5===0) launchConfetti();
+});
+
+// === CONFETTI ===
+const canvas=document.getElementById('confetti-canvas');
+const ctx=canvas.getContext('2d');
+let confettiPieces=[];
+let confettiRunning=false;
+
+function resizeCanvas(){
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize',resizeCanvas);
+
+function launchConfetti(){
+  const colors=['#ff6b9d','#ffd700','#e8457a','#ffecb3','#8e4585','#ff9800','#fff'];
+  for(let i=0;i<80;i++){
+    confettiPieces.push({
+      x:Math.random()*canvas.width,
+      y:-20-Math.random()*100,
+      w:6+Math.random()*6,
+      h:10+Math.random()*8,
+      color:colors[Math.floor(Math.random()*colors.length)],
+      vy:2+Math.random()*4,
+      vx:(Math.random()-.5)*4,
+      rotation:Math.random()*360,
+      rv:(Math.random()-.5)*8,
+      life:1
+    });
+  }
+  if(!confettiRunning){confettiRunning=true;animateConfetti();}
+}
+
+function animateConfetti(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  confettiPieces.forEach((p,i)=>{
+    p.x+=p.vx;
+    p.y+=p.vy;
+    p.rotation+=p.rv;
+    p.life-=.003;
+    if(p.y>canvas.height||p.life<=0){confettiPieces.splice(i,1);return;}
+    ctx.save();
+    ctx.translate(p.x,p.y);
+    ctx.rotate(p.rotation*Math.PI/180);
+    ctx.fillStyle=p.color;
+    ctx.globalAlpha=p.life;
+    ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+    ctx.restore();
+  });
+  if(confettiPieces.length>0) requestAnimationFrame(animateConfetti);
+  else{confettiRunning=false;ctx.clearRect(0,0,canvas.width,canvas.height);}
+}
+
+// === SCROLL ANIMATIONS ===
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.opacity='1';
+      e.target.style.transform='translateY(0)';
+    }
+  });
+},{threshold:.15});
+
+document.querySelectorAll('.betty-card,.trait-card,.message-box').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateY(40px)';
+  el.style.transition='opacity .6s,transform .6s';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
